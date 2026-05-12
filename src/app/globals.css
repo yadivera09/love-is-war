@@ -1,0 +1,196 @@
+@import url('https://fonts.googleapis.com/css2?family=Shippori+Mincho:wght@400;700;800&family=Klee+One:wght@400;600&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --red-deep: #8b0000;
+  --red-mid: #c0392b;
+  --red-dark: #3d0000;
+  --cream: #f0e6d3;
+  --parchment: #d4c4b0;
+  --bg: #080808;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html,
+body {
+  background: var(--bg);
+  color: var(--cream);
+  font-family: 'Klee One', cursive;
+  overflow-x: hidden;
+}
+
+/* Scrollbar */
+::-webkit-scrollbar { width: 4px; }
+::-webkit-scrollbar-track { background: #0d0d0d; }
+::-webkit-scrollbar-thumb { background: var(--red-deep); border-radius: 2px; }
+
+/* Petals animation */
+@keyframes fall {
+  0% { transform: translateY(-20px) rotate(0deg); opacity: 1; }
+  100% { transform: translateY(110vh) rotate(720deg); opacity: 0; }
+}
+
+.petal {
+  position: absolute;
+  top: -20px;
+  width: 8px;
+  height: 12px;
+  background: rgba(139, 0, 0, 0.5);
+  border-radius: 50% 0;
+  animation: fall linear infinite;
+  pointer-events: none;
+}
+
+.petal.bright {
+  background: rgba(192, 57, 43, 0.7);
+  width: 6px;
+  height: 10px;
+}
+
+/* Achievement pop */
+@keyframes achievePop {
+  0% { transform: scale(0.8) translateY(10px); opacity: 0; }
+  60% { transform: scale(1.04) translateY(-2px); }
+  100% { transform: scale(1) translateY(0); opacity: 1; }
+}
+
+.achieve-pop {
+  animation: achievePop 0.5s ease forwards;
+}
+
+/* Scanlines texture overlay */
+.scanlines::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: repeating-linear-gradient(
+    0deg,
+    transparent,
+    transparent 2px,
+    rgba(0, 0, 0, 0.03) 2px,
+    rgba(0, 0, 0, 0.03) 4px
+  );
+  pointer-events: none;
+  z-index: 1;
+}
+
+/* Hearts rain */
+@keyframes heartFall {
+  0% { transform: translateY(-30px) scale(0.8) rotate(0deg); opacity: 1; }
+  70% { opacity: 0.8; }
+  100% { transform: translateY(110vh) scale(1.2) rotate(45deg); opacity: 0; }
+}
+
+.heart-particle {
+  position: absolute;
+  top: -30px;
+  font-size: 16px;
+  animation: heartFall linear infinite;
+  pointer-events: none;
+  filter: drop-shadow(0 0 4px rgba(139, 0, 0, 0.4));
+}
+
+/* Quiz answer effects */
+@keyframes quizCorrect {
+  0% { transform: scale(1); }
+  30% { transform: scale(1.15); }
+  60% { transform: scale(0.95); }
+  100% { transform: scale(1); }
+}
+
+@keyframes quizWrong {
+  0%, 100% { transform: translateX(0); }
+  15% { transform: translateX(-8px); }
+  30% { transform: translateX(8px); }
+  45% { transform: translateX(-6px); }
+  60% { transform: translateX(6px); }
+  75% { transform: translateX(-3px); }
+  90% { transform: translateX(3px); }
+}
+
+.quiz-correct {
+  animation: quizCorrect 0.5s ease;
+}
+
+.quiz-wrong {
+  animation: quizWrong 0.5s ease;
+}
+
+/* Score pop */
+@keyframes scorePop {
+  0% { transform: scale(1); }
+  50% { transform: scale(1.4); color: #c0392b; }
+  100% { transform: scale(1); }
+}
+
+.score-pop {
+  animation: scorePop 0.6s ease;
+}
+
+/* Score increment float */
+@keyframes scoreFloat {
+  0% { opacity: 1; transform: translateY(0); }
+  100% { opacity: 0; transform: translateY(-30px); }
+}
+
+.score-float {
+  animation: scoreFloat 1s ease-out forwards;
+}
+
+/* Reaction bubble */
+@keyframes reactionBounce {
+  0% { transform: scale(0) translateY(10px); opacity: 0; }
+  50% { transform: scale(1.2) translateY(-5px); opacity: 1; }
+  100% { transform: scale(1) translateY(0); opacity: 1; }
+}
+
+.reaction-bubble {
+  animation: reactionBounce 0.5s ease forwards;
+}
+
+/* Credits scroll */
+@keyframes creditsScroll {
+  0% { transform: translateY(100%); }
+  100% { transform: translateY(-100%); }
+}
+
+.credits-scroll {
+  animation: creditsScroll 30s linear forwards;
+}
+
+/* Day counter glow */
+@keyframes counterGlow {
+  0%, 100% { text-shadow: 0 0 8px rgba(192, 57, 43, 0.3); }
+  50% { text-shadow: 0 0 20px rgba(192, 57, 43, 0.6); }
+}
+
+.counter-glow {
+  animation: counterGlow 2s ease-in-out infinite;
+}
+
+/* Avatar merge */
+@keyframes avatarMergeLeft {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(20px); }
+}
+
+@keyframes avatarMergeRight {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-20px); }
+}
+
+.avatar-merge-left {
+  animation: avatarMergeLeft 1.5s ease-in-out forwards;
+}
+
+.avatar-merge-right {
+  animation: avatarMergeRight 1.5s ease-in-out forwards;
+}

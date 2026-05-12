@@ -109,7 +109,7 @@ export const ROUNDS: Round[] = [
       "Hasta que Yadira abrió la boca.",
       '"Voy a rifar una pierna de pollo."',
       "Con una seguridad que movió montañas.",
-      "Silencio.",
+      "...",
       "Nadie preguntó qué quería decir.",
       "Todos lo entendieron. Nadie lo olvidó.",
     ],

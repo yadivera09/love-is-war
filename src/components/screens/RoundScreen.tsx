@@ -27,7 +27,7 @@ export function RoundScreen({
   const [phase, setPhase] = useState<"lines" | "achievement">("lines");
   const { displayed, done: linesDone } = useTypewriter(
     round.lines,
-    20,
+    30,
     phase === "lines"
   );
   const [showScoreUpdate, setShowScoreUpdate] = useState(false);

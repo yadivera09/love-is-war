@@ -27,7 +27,7 @@ export function RoundScreen({
   const [phase, setPhase] = useState<"lines" | "achievement">("lines");
   const { displayed, done: linesDone } = useTypewriter(
     round.lines,
-    32,
+    50,
     phase === "lines"
   );
   const [showScoreUpdate, setShowScoreUpdate] = useState(false);
@@ -56,7 +56,7 @@ export function RoundScreen({
   const isLast = roundIndex === totalRounds - 1;
   const nextLabel = isLast
     ? "Ver expediente →"
-    : `Round ${["I","II","III","IV","V","VI","VII"][roundIndex + 1]} →`;
+    : `Round ${["I", "II", "III", "IV", "V", "VI", "VII"][roundIndex + 1]} →`;
 
   const winnerText =
     round.winner === "both"
@@ -101,11 +101,10 @@ export function RoundScreen({
               />
             </div>
             <span
-              className={`font-mincho text-cream text-sm font-bold transition-all ${
-                showScoreUpdate && (round.winner === "beto" || round.winner === "both")
-                  ? "score-pop"
-                  : ""
-              }`}
+              className={`font-mincho text-cream text-sm font-bold transition-all ${showScoreUpdate && (round.winner === "beto" || round.winner === "both")
+                ? "score-pop"
+                : ""
+                }`}
             >
               {betoScore}
             </span>
@@ -122,11 +121,10 @@ export function RoundScreen({
               <span className="text-green-500 text-xs font-bold score-float">+1</span>
             )}
             <span
-              className={`font-mincho text-cream text-sm font-bold transition-all ${
-                showScoreUpdate && (round.winner === "yadira" || round.winner === "both")
-                  ? "score-pop"
-                  : ""
-              }`}
+              className={`font-mincho text-cream text-sm font-bold transition-all ${showScoreUpdate && (round.winner === "yadira" || round.winner === "both")
+                ? "score-pop"
+                : ""
+                }`}
             >
               {yadiraScore}
             </span>

@@ -45,7 +45,7 @@ function useDayCounter(targetDays: number, start: boolean) {
 }
 
 export function FinalScreen({ onCredits }: FinalScreenProps) {
-  const { displayed, done } = useTypewriter(FINAL_NARRATOR, 34);
+  const { displayed, done } = useTypewriter(FINAL_NARRATOR, 45);
   const [showMessage, setShowMessage] = useState(false);
   const [showCelebration, setShowCelebration] = useState(false);
 

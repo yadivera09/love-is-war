@@ -158,12 +158,12 @@ body {
 
 /* Credits scroll */
 @keyframes creditsScroll {
-  0% { transform: translateY(100%); }
-  100% { transform: translateY(-100%); }
+  0% { transform: translateY(80vh); }
+  100% { transform: translateY(-120%); }
 }
 
 .credits-scroll {
-  animation: creditsScroll 30s linear forwards;
+  animation: creditsScroll 45s linear forwards;
 }
 
 /* Day counter glow */

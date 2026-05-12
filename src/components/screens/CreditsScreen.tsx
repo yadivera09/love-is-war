@@ -13,7 +13,7 @@ export function CreditsScreen({ onRestart }: CreditsScreenProps) {
 
   useEffect(() => {
     // Show restart button after credits finish scrolling
-    const timer = setTimeout(() => setShowRestart(true), 28000);
+    const timer = setTimeout(() => setShowRestart(true), 40000);
     return () => clearTimeout(timer);
   }, []);
 
@@ -30,7 +30,7 @@ export function CreditsScreen({ onRestart }: CreditsScreenProps) {
 
       {/* Scrolling credits */}
       <div className="absolute inset-0 overflow-hidden">
-        <div className="credits-scroll absolute inset-x-0 top-0 flex flex-col items-center pt-[100vh] pb-[60vh] gap-12 px-6">
+        <div className="credits-scroll absolute inset-x-0 top-0 flex flex-col items-center pt-[10vh] pb-[60vh] gap-12 px-6">
           {/* Title */}
           <div className="text-center mb-8">
             <p className="font-mincho text-[#8b0000] text-[0.6rem] tracking-[0.5em] uppercase mb-2">

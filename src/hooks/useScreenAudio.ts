@@ -55,27 +55,24 @@ export function useScreenAudio(screen: string, roundIndex: number) {
     audio.volume = 0;
     audioRef.current = audio;
 
-    // Small delay to let the screen transition start
-    const playTimeout = setTimeout(() => {
-      audio
-        .play()
-        .then(() => {
-          // Fade in over ~500ms
-          let vol = 0;
-          const step = 0.05;
-          const interval = setInterval(() => {
-            vol = Math.min(1, vol + step);
-            audio.volume = vol;
-            if (vol >= 1) clearInterval(interval);
-          }, 25);
-        })
-        .catch(() => {
-          // Autoplay blocked — silently ignore
-        });
-    }, 300);
+    // Play immediately to satisfy browser requirements for user-triggered audio
+    audio
+      .play()
+      .then(() => {
+        // Fade in over ~500ms
+        let vol = 0;
+        const step = 0.05;
+        const interval = setInterval(() => {
+          vol = Math.min(1, vol + step);
+          audio.volume = vol;
+          if (vol >= 1) clearInterval(interval);
+        }, 25);
+      })
+      .catch((err) => {
+        console.warn("Audio playback blocked by browser. Interaction required.", err);
+      });
 
     return () => {
-      clearTimeout(playTimeout);
       // Fade out on cleanup
       if (audioRef.current) {
         const a = audioRef.current;

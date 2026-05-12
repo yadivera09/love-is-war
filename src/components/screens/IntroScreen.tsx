@@ -10,7 +10,7 @@ type IntroScreenProps = {
 };
 
 export function IntroScreen({ onDone }: IntroScreenProps) {
-  const { displayed, done } = useTypewriter(INTRO_LINES, 32);
+  const { displayed, done } = useTypewriter(INTRO_LINES, 40);
 
   return (
     <div className="relative min-h-dvh w-full flex flex-col items-center justify-center px-6 py-12 overflow-hidden bg-[#0d0d0d]">
